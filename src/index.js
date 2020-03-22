@@ -1,8 +1,10 @@
+'use strict';
+
 function getKeys(obj) {
     const arr = [];
 
     for(const key in obj) {
-        arr.push(key);
+        if (obj.propertyIsEnumerable(key)) arr.push(key);
     }
 
     return arr;
@@ -12,7 +14,7 @@ function getValues(obj) {
     const arr = [];
 
     for(const key in obj) {
-        arr.push(obj[key]);
+        if (obj.propertyIsEnumerable(key)) arr.push(obj[key]);
     }
 
     return arr;
@@ -22,7 +24,7 @@ function getEntries(obj) {
     const arr = [];
 
     for(const key in obj) {
-        arr.push([key, obj[key]]);
+        if (obj.propertyIsEnumerable(key)) arr.push([key, obj[key]]);
     }
 
     return arr;
